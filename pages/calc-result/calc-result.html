@@ -1,0 +1,44 @@
+<!--
+  Generated template for the CalcResultPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>計算結果</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="grid-basic-page">
+
+  <p padding>【メンツ】</p>
+  <ion-grid>
+    <ion-row>
+        <ion-col *ngFor="let hai of combMentsu.getHaiList()">
+            <img class="{{hai.getVisualClass()}}" src="{{hai.getPngPath()}}" alt="{{hai.getName()}}">
+        </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <p padding>【点数】</p>
+  <ion-grid class="score">
+      <ion-row padding>
+          <ion-col *ngFor="let yaku of combMentsu.getYakuList()" col-1>
+              <div>{{yaku.getName()}}</div>
+          </ion-col>
+      </ion-row>
+      <ion-row padding>
+          <ion-col col-1><div>{{combMentsu.getTotalHan()}}飜</div></ion-col>
+          <ion-col col-1><div>{{combMentsu.getTotalHu()}}符</div></ion-col>
+      </ion-row>
+      <ion-row padding>
+          <ion-col col-1><div>{{combMentsu.getTotal()}}</div></ion-col>
+          <ion-col col-1><div>{{combMentsu.getScore()}}点</div></ion-col>
+      </ion-row>
+  </ion-grid>
+
+  <ion-row>
+      <button ion-button (click)="dismiss()">OK</button>
+  </ion-row>
+</ion-content>

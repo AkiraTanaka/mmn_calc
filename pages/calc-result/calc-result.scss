@@ -1,0 +1,48 @@
+page-calc-result {
+    .grid-basic-page {
+        ion-grid.score ion-row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        ion-grid.score ion-row.mentsu ion-col {
+            width: auto;
+            flex-basis: auto;
+            flex-grow: 0;
+        }
+
+        ion-col div {
+            background-color: #f0f5ff;
+            border: 1px solid #e6e9ee;
+            border-radius: 2px;
+            padding: 5px;
+            text-align: center;
+        }
+
+        ion-row {
+            display: -webkit-box;
+            flex-wrap: wrap;
+        }
+        ion-col {
+            padding: 0;
+        }
+
+        ion-row.mentsu {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        ion-row.mentsu ion-col {
+            width: auto;
+            flex-basis: auto;
+            flex-grow: 0;
+        }
+        img.yoko {
+            transform: rotate( -90deg );
+        }
+        
+        p {
+            padding: 10px 0 0 10px !important;
+            margin: 0;
+        }
+    }
+
+}

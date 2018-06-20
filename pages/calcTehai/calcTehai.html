@@ -1,0 +1,41 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>点数計算</ion-title>
+    </ion-navbar>  
+</ion-header>
+
+<ion-content class="grid-basic-page">
+    <p padding>牌を選択してください。</p>
+    <ion-grid>
+        <ion-row *ngFor="let row of selectHaiMap">
+            <ion-col *ngFor="let hai of row" >
+                <ion-img src="{{hai.getPngPath()}}" alt="{{hai.getName()}}" (click)="selectHai(hai)"></ion-img>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <p padding>【手牌】</p>
+    <ion-grid>
+        <ion-row justify-content-start>
+            <ion-col *ngFor="let hai of tehai.getHaiListWithOutAgariHai()">
+                <img src="{{hai.getPngPath()}}" alt="{{hai.getName()}}" (click)="deleteHai(hai)">
+            </ion-col>
+            <ng-container *ngIf="tehai.getAgariHai() != null">
+                <ion-col>
+                    <img class="yoko" src="{{tehai.getAgariHai().getPngPath()}}" alt="{{tehai.getAgariHai().getName()}}" (click)="deleteHai(tehai.getAgariHai())">
+                </ion-col>
+            </ng-container>
+            <ion-col col-3></ion-col>
+            <ng-container *ngFor="let dekiMentsu of tehai.getDekiMentsuList()">
+                <ion-col *ngFor="let dekiMentusHai of dekiMentsu.getHaiList()">
+                    <img class="{{dekiMentusHai.getVisualClass()}}" src="{{dekiMentusHai.getPngPath()}}" alt="{{dekiMentusHai.getName()}}" (click)="deleteMentsu(dekiMentsu)">
+                </ion-col>
+            </ng-container>
+        </ion-row>
+        <ion-row>
+            <button ion-button (click)="clearList()">Clear</button>
+            <button ion-button (click)="setNakiFlg()">{{ getNakiButtonValue() }}</button>
+            <button ion-button (click)="setDetail()">詳細</button>
+        </ion-row>
+    </ion-grid>
+</ion-content>
